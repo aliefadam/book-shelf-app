@@ -1,0 +1,396 @@
+@import url("poppins.css");
+
+:root {
+  --primary: #543310;
+  --secondary: #74512d;
+  --tertiary: #bd9d7c;
+  --quaternary: #f8f4e1;
+}
+
+body::-webkit-scrollbar {
+  width: 9px;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(84, 51, 16, 1);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Poppins", system-ui;
+  line-height: 1;
+}
+
+body {
+  background-color: var(--quaternary);
+}
+
+header {
+  background-color: var(--primary);
+  padding: 20px 50px;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 1px 5px rgba(84, 51, 16, 0.5);
+}
+
+header h1 {
+  color: var(--quaternary);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  padding: 30px;
+  gap: 30px;
+  margin-top: 70px;
+}
+
+#container-left {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+#container-right {
+  flex: 1;
+}
+
+section {
+  border: 3px solid var(--primary);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 1px 1px 8px rgba(84, 51, 16, 0.5);
+}
+
+/* Section Tambah Buku */
+section#tambah-buku {
+  position: sticky;
+  top: 100px;
+}
+
+section#tambah-buku h2 {
+  text-align: center;
+  color: var(--primary);
+}
+
+section#tambah-buku form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+section#tambah-buku form .form-group-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+section#tambah-buku form .form-group-input label {
+  font-weight: 600;
+}
+
+section#tambah-buku form .form-group-input .input-icon {
+  border: 1px solid var(--primary);
+  display: flex;
+  border-radius: 5px;
+}
+
+section#tambah-buku form .form-group-input .input-icon i {
+  background-color: var(--primary);
+  color: var(--quaternary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  font-size: 14px;
+}
+
+section#tambah-buku form .form-group-input input {
+  padding: 8px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  width: 100%;
+}
+
+section#tambah-buku form .form-group-input input:focus {
+  border: 1px solid var(--primary);
+  outline: 1px solid var(--primary);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+section#tambah-buku form .form-group-checkbox {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+section#tambah-buku form .form-group-checkbox label {
+  font-weight: 600;
+}
+
+section#tambah-buku form .form-group-checkbox input {
+  transform: translateY(1px) scale(1.1);
+  accent-color: var(--primary);
+}
+
+section#tambah-buku form button {
+  background-color: var(--primary);
+  padding: 12px;
+  color: var(--quaternary);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 200ms;
+  border-radius: 5px;
+}
+
+section#tambah-buku form button:hover {
+  background-color: #42270c;
+}
+
+section#tambah-buku form button span {
+  font-weight: 600;
+}
+/* End Section Tambah Buku */
+
+/* Section Cari Buku */
+section#cari-buku h2 {
+  text-align: center;
+  color: var(--primary);
+}
+
+section#cari-buku form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+section#cari-buku form label,
+section#cari-buku form button {
+  display: none;
+}
+
+section#cari-buku form .input-icon {
+  border: 1px solid var(--primary);
+  display: flex;
+  border-radius: 5px;
+}
+
+section#cari-buku form .input-icon i {
+  background-color: var(--primary);
+  color: var(--quaternary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  font-size: 14px;
+}
+
+section#cari-buku form .input-icon input {
+  padding: 8px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  width: 100%;
+}
+
+section#cari-buku form .input-icon input:focus {
+  border: 1px solid var(--primary);
+  outline: 1px solid var(--primary);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+/* End Section Cari Buku */
+
+/* Section Buku Selesai Dibaca */
+section#selesai-dibaca h2,
+section#belum-selesai-dibaca h2 {
+  text-align: center;
+  color: var(--primary);
+}
+
+section#belum-selesai-dibaca #incompleteBookList,
+section#selesai-dibaca #completeBookList {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+section#belum-selesai-dibaca #incompleteBookList .book-item,
+section#selesai-dibaca #completeBookList .book-item {
+  border: 2px solid var(--primary);
+  display: flex;
+  gap: 15px;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 1px 1px 5px rgba(84, 51, 16, 0.5);
+}
+
+section#belum-selesai-dibaca #incompleteBookList .book-item .icon-book,
+section#selesai-dibaca #completeBookList .book-item .icon-book {
+  font-size: 50px;
+  color: var(--primary);
+}
+
+section#belum-selesai-dibaca #incompleteBookList .book-item .book-detail,
+section#selesai-dibaca #completeBookList .book-item .book-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+section#belum-selesai-dibaca #incompleteBookList .book-item .book-detail h3,
+section#selesai-dibaca #completeBookList .book-item .book-detail h3 {
+  color: var(--primary);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+section#belum-selesai-dibaca #incompleteBookList .book-item .book-detail p,
+section#selesai-dibaca #completeBookList .book-item .book-detail p {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+section#belum-selesai-dibaca
+  #incompleteBookList
+  .book-item
+  .book-detail
+  .action,
+section#selesai-dibaca #completeBookList .book-item .book-detail .action {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+section#belum-selesai-dibaca
+  #incompleteBookList
+  .book-item
+  .book-detail
+  .action
+  button,
+section#selesai-dibaca
+  #completeBookList
+  .book-item
+  .book-detail
+  .action
+  button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  width: 150px;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+section#belum-selesai-dibaca
+  #incompleteBookList
+  .book-item
+  .book-detail
+  .action
+  button.btn-selesai-dibaca,
+section#selesai-dibaca
+  #completeBookList
+  .book-item
+  .book-detail
+  .action
+  button.btn-belum-selesai-dibaca {
+  background-color: #15803d;
+  color: white;
+}
+
+section#belum-selesai-dibaca
+  #incompleteBookList
+  .book-item
+  .book-detail
+  .action
+  button.btn-selesai-dibaca:hover,
+section#selesai-dibaca
+  #completeBookList
+  .book-item
+  .book-detail
+  .action
+  button.btn-belum-selesai-dibaca:hover {
+  background-color: #166534;
+}
+
+section#belum-selesai-dibaca
+  #incompleteBookList
+  .book-item
+  .book-detail
+  .action
+  button.btn-hapus,
+section#selesai-dibaca
+  #completeBookList
+  .book-item
+  .book-detail
+  .action
+  button.btn-hapus {
+  background-color: #b91c1c;
+  color: white;
+}
+
+section#belum-selesai-dibaca
+  #incompleteBookList
+  .book-item
+  .book-detail
+  .action
+  button.btn-hapus:hover,
+section#selesai-dibaca
+  #completeBookList
+  .book-item
+  .book-detail
+  .action
+  button.btn-hapus:hover {
+  background-color: #991b1b;
+}
+
+section#belum-selesai-dibaca
+  #incompleteBookList
+  .book-item
+  .book-detail
+  .action
+  button.btn-edit,
+section#selesai-dibaca
+  #completeBookList
+  .book-item
+  .book-detail
+  .action
+  button.btn-edit {
+  background-color: #a16207;
+  color: white;
+}
+
+section#belum-selesai-dibaca
+  #incompleteBookList
+  .book-item
+  .book-detail
+  .action
+  button.btn-edit:hover,
+section#selesai-dibaca
+  #completeBookList
+  .book-item
+  .book-detail
+  .action
+  button.btn-edit:hover {
+  background-color: #854d0e;
+}
+/* End Section Buku Selesai Dibaca */
