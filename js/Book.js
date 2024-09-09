@@ -13,6 +13,10 @@ class Book {
     return Utils.getLocalStorage("books");
   }
 
+  static getBookById(bookID) {
+    return Utils.getLocalStorage("books").find((book) => book.id == bookID);
+  }
+
   addBook({ title, author, year, isComplete }) {
     this.books.push({
       id: this.generateID(),
@@ -35,10 +39,19 @@ class Book {
     Utils.saveLocalStorage("books", newBooks);
   }
 
-  static displayIncompleteBooks() {
-    const incompleteBooks = Utils.getLocalStorage("books").filter(
-      (book) => book.isComplete == false
-    );
+  static displayIncompleteBooks(search = "") {
+    let incompleteBooks = [];
+
+    if (search == "") {
+      incompleteBooks = Utils.getLocalStorage("books").filter(
+        (book) => book.isComplete == false
+      );
+    } else {
+      incompleteBooks = Utils.getLocalStorage("books").filter(
+        (book) =>
+          book.isComplete == false && book.title.toLowerCase().includes(search)
+      );
+    }
 
     let HTMLBookItem = "";
     incompleteBooks.forEach((book) => {
@@ -84,10 +97,19 @@ class Book {
     return HTMLBookItem;
   }
 
-  static displayCompleteBooks() {
-    const completeBooks = Utils.getLocalStorage("books").filter(
-      (book) => book.isComplete == true
-    );
+  static displayCompleteBooks(search = "") {
+    let completeBooks = [];
+
+    if (search == "") {
+      completeBooks = Utils.getLocalStorage("books").filter(
+        (book) => book.isComplete == true
+      );
+    } else {
+      completeBooks = Utils.getLocalStorage("books").filter(
+        (book) =>
+          book.isComplete == true && book.title.toLowerCase().includes(search)
+      );
+    }
 
     let HTMLBookItem = "";
     completeBooks.forEach((book) => {
@@ -131,6 +153,23 @@ class Book {
       `;
     });
     return HTMLBookItem;
+  }
+
+  static updateBook({ bookID, newTitle, newAuthor, newYear }) {
+    const editedBook = Utils.getLocalStorage("books").map((book) => {
+      if (book.id == bookID) {
+        book.title = newTitle;
+        book.author = newAuthor;
+        book.year = newYear;
+      }
+      return book;
+    });
+    Utils.saveLocalStorage("books", editedBook);
+  }
+
+  static deleteBook(bookID) {
+    const newBooks = this.getBooks().filter((book) => book.id != bookID);
+    Utils.saveLocalStorage("books", newBooks);
   }
 }
 

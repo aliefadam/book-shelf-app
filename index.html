@@ -43,6 +43,8 @@
     <link rel="stylesheet" href="css/style.css" />
 
     <!-- Impor script kamu di sini -->
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Lampirkan `defer` jika pemanggilan dilakukan dalam <head> -->
     <script type="module" defer src="js/main.js"></script>
   </head>
@@ -152,6 +154,68 @@
         </section>
       </div>
       <!-- End Container Right -->
+
+      <!-- Overlay Edit Buku -->
+      <div id="overlay-edit-buku">
+        <section id="edit-buku">
+          <h2>Edit Buku</h2>
+          <form id="bookFormEdit" data-testid="bookForm">
+            <input type="hidden" id="bookFormIdEdit" />
+            <div class="form-group-input">
+              <label for="bookFormTitleEdit">Judul</label>
+              <div class="input-icon">
+                <i class="fa-regular fa-heading"></i>
+                <input
+                  id="bookFormTitleEdit"
+                  type="text"
+                  required
+                  data-testid="bookFormTitleInput"
+                />
+              </div>
+            </div>
+            <div class="form-group-input">
+              <label for="bookFormAuthorEdit">Penulis</label>
+              <div class="input-icon">
+                <i class="fa-regular fa-user"></i>
+                <input
+                  id="bookFormAuthorEdit"
+                  type="text"
+                  required
+                  data-testid="bookFormAuthorInput"
+                />
+              </div>
+            </div>
+            <div class="form-group-input">
+              <label for="bookFormYearEdit">Tahun</label>
+              <div class="input-icon">
+                <i class="fa-regular fa-calendar-days"></i>
+                <input
+                  id="bookFormYearEdit"
+                  type="number"
+                  required
+                  data-testid="bookFormYearInput"
+                />
+              </div>
+            </div>
+            <div class="action">
+              <button
+                id="bookFormSimpantEdit"
+                type="submit"
+                data-testid="bookFormSimpantEditButton"
+              >
+                Simpan
+              </button>
+              <button
+                id="bookFormBatalEdit"
+                type="button"
+                data-testid="bookFormBatalEditButton"
+              >
+                Batal
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
     </main>
   </body>
 </html>
