@@ -56,7 +56,7 @@ const add = (e) => {
     book.addBook({
       title: titleInput.value,
       author: authorInput.value,
-      year: yearInput.value,
+      year: +yearInput.value,
       isComplete: isCompleteInput.checked,
     });
 
@@ -125,7 +125,7 @@ const updateBook = (e) => {
     bookID,
     newTitle: titleInputEdit.value,
     newAuthor: authorInputEdit.value,
-    newYear: yearInputEdit.value,
+    newYear: +yearInputEdit.value,
   });
 
   overlayEditBuku.style.display = "none";
